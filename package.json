@@ -14,7 +14,7 @@
         "onCommand:extension.react-components:create-class-component",
         "onCommand:extension.react-components:create-functional-component"
     ],
-    "main": "./extension",
+    "main": "./src",
     "contributes": {
         "commands": [
             {
@@ -25,7 +25,36 @@
                 "command": "extension.react-components:create-functional-component",
                 "title": "React Components: Create functional component"
             }
-        ]
+        ],
+        "configuration": {
+            "title": "React Components Configuration",
+            "type": "object",
+            "properties": {
+                "react-components.root": {
+                    "type": "string",
+                    "enum": [
+                        "<root>",
+                        "<component>"
+                    ],
+                    "default": "<root>/src/component",
+                    "description": "Let's you specify where the created components are saved."
+                },
+                "react-components.fileExtension": {
+                    "type": "string",
+                    "enum": [
+                        ".js",
+                        ".jsx"
+                    ],
+                    "default": ".js",
+                    "description": "Let's you specify the file extensions for the created components."
+                },
+                "react-components.openAfterCreate": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Do you want to open the file after it is created?"
+                }
+            }
+        }
     },
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",

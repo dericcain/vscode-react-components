@@ -1,8 +1,9 @@
-const vscode = require('vscode');
+const CreateComponent = require('./create-component');
 
-const CreateClassComponent = () => {
-  vscode.window.showInputBox({prompt: 'Give your component a name...'})
-    .then(fileName => vscode.window.showInformationMessage('Your input was ' + fileName));
+class CreateClassComponent {
+  constructor() {
+    new CreateComponent('stub-class-component.js');
+  }
 }
 
 module.exports = CreateClassComponent;
