@@ -1,65 +1,27 @@
-# react-components README
+# VSCode React Components
+A quick and easy way to create React components in VSCode which will save your life. Well, maybe just a few hours of time...
 
-This is the README for your extension "react-components". After writing up a brief description, we recommend including the following sections.
+## Installation
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## Configuration
+```JSON
+{
+	"react-components.root": "<root>/src/components", // use <root> and <component>. <root> is project root and <component> is the component's path
+	"react-components.nameConvention": "camel", // Maybe coming soon... snake, camel, kebob for how the test name should be
+	"react-components.fileExtension": ".js", // .js, .jsx
+	"react-components.openAfterCreate": true, // true, false
+  "react-components.tests": true, // true, false Create a test with your component
+	"react-components.testsRoot": "<component>/__tests__", // use <root> or <component> to give a path for the test location
+	"react-components.testsNameConvention": "camel", // snake, camel, kebob for how the test name should be
+	"react-components.testsNameAppend": ".test", // append this to the end of the file so it can be Component.test.js or component_test.js
+	"react-components.testsCreateJestSnapshot": true, // true, false
+	"react-components.testsOpenAfterCreate": false, // true, false
+	"react-components.testsTemplate": "<root>/test-template.js" // Use your own template for testing. 
+}
+```
 
-For example if there is an image subfolder under your extension project workspace:
+## Issues
 
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on OSX or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on OSX or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (OSX) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+## Contributing
