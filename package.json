@@ -32,10 +32,6 @@
             "properties": {
                 "react-components.root": {
                     "type": "string",
-                    "enum": [
-                        "<root>",
-                        "<component>"
-                    ],
                     "default": "<root>/src/component",
                     "description": "Let's you specify where the created components are saved."
                 },
@@ -52,6 +48,16 @@
                     "type": "boolean",
                     "default": true,
                     "description": "Do you want to open the file after it is created?"
+                },
+                "react-components.tests": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Do you want to create a test with each component?"
+                },
+                "react-components.testsRoot": {
+                    "type": "string",
+                    "default": "<root>/tests",
+                    "description": "This is the your tests will be created."
                 }
             }
         }

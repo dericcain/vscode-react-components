@@ -3,44 +3,41 @@ const path = require('path');
 const fs = require('fs');
 const config = require('../utils/config');
 const { determinePath } = require('../utils/paths');
-const { replaceAll } = require('../utils/stub');
+const { replaceAllTest } = require('../utils/stub');
 const { TEMPLATE_DIR } = require('../utils/constants');
-const CreateTest = require('./create-test');
 
-class CreateComponent {
-  constructor(templateName) {
-    this.template = path.join(TEMPLATE_DIR, templateName);
-    this.getComponentName();
+class CreateTest {
+  constructor(fileName = null) {
+    this.template = path.join(TEMPLATE_DIR, 'stub-jest-test.js');
+    if (!fileName) {
+      this.getTestName();
+    } else {
+      this.fileName = fileName;
+      this.outputInfo = determinePath(this.fileName, true);
+      this.createTest();
+    }
   }
 
-  getComponentName() {
+  getTestName() {
     window.showInputBox({ prompt: 'Give your component a name...' }).then(fileName => {
       this.fileName = fileName;
       this.outputInfo = determinePath(fileName);
-      this.createComponent();
+      this.createTest();
     });
   }
 
-  createComponent() {
+  createTest() {
     fs.readFile(this.template, 'utf8', (error, content) => {
       if (error) throw new Error(error);
 
       this.checkIfFilenameHasDirectory();
       this.createDirectoryIfNotExists();
 
-      const newComponent = replaceAll(content, '$COMPONENT_NAME$', this.fileName);
+      const newComponent = replaceAllTest(content, this.fileName, this.outputInfo.fullPath);
       fs.writeFileSync(this.outputInfo.fullPath, newComponent, 'utf8');
-
-      this.createTestIfNeeded();
 
       this.openFileIfNeeded();
     });
-  }
-
-  createTestIfNeeded() {
-    if (config().has('tests') && config().get('tests')) {
-      new CreateTest(this.fileName);
-    }
   }
 
   createDirectoryIfNotExists() {
@@ -57,11 +54,11 @@ class CreateComponent {
   }
 
   openFileIfNeeded() {
-    if (config().has('openAfterCreate') && config().get('openAfterCreate')) {
+    if (config().has('testsOpenAfterCreate') && config().get('testsOpenAfterCreate')) {
       const file = workspace.openTextDocument(this.outputInfo.fullPath);
       window.showTextDocument(file);
     }
   }
 }
 
-module.exports = CreateComponent;
+module.exports = CreateTest;
