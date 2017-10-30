@@ -6,7 +6,7 @@ const ROOT_DIR_USER_VARIABLE = /<root>/;
 const COMPONENT_DIR_USER_VARIABLE = /<component>/;
 const PROJECT_ROOT = workspace.workspaceFolders[0].uri.path;
 const CURRENT_FILE_DIR = path.dirname(window.activeTextEditor.document.fileName);
-const FILE_EXTENSTION = config().has('fileExtension')
+const FILE_EXTENSION = config().has('fileExtension')
   ? config().get('fileExtension')
   : '.js';
 
@@ -21,7 +21,14 @@ const determinePath = (fileName, isTestPath = false) => {
     additionalDir = pathSections.slice(0, pathSections.length - 1).join('/');
   }
   const baseOutputPath = basePath(isTestPath);
-  const outputFileName = fileName + FILE_EXTENSTION;
+  let outputFileName;
+  if (isTestPath) {
+    outputFileName = config().has('testsAppendName')
+      ? `${fileName}${config().get('testsAppendName')}${FILE_EXTENSION}`
+      : fileName + FILE_EXTENSION;
+  } else {
+    outputFileName = fileName + FILE_EXTENSION;
+  }
 
   switch (true) {
     case ROOT_DIR_USER_VARIABLE.test(baseOutputPath):
@@ -52,14 +59,12 @@ module.exports.determinePath = determinePath;
 
 function basePath(isTestPath) {
   if (isTestPath) {
-    if (config().has('testsRoot')) {
-      return config().get('testsRoot');
-    }
-    return '__tests__';
+    return config().has('testsRoot') 
+      ? config().get('testsRoot')
+      : '__tests__';
   } else {
-    if (config().has('root')) {
-      return config().get('root');
-    }
-    return 'src/components';
+    return config().has('root')
+      ? config().get('root')
+      : 'src/components';
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import $COMPONENT_NAME$ from $COMPONENT_PATH$;
+import $COMPONENT_NAME$ from '$COMPONENT_PATH$';
 
 describe('<$COMPONENT_NAME$ />', () => {
     it('should match the snapshot', () => {

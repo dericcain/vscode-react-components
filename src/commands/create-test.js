@@ -7,19 +7,20 @@ const { replaceAllTest } = require('../utils/stub');
 const { TEMPLATE_DIR } = require('../utils/constants');
 
 class CreateTest {
-  constructor(fileName = null) {
+  constructor(fileName = null, componentFullPath = null) {
     this.template = path.join(TEMPLATE_DIR, 'stub-jest-test.js');
     if (!fileName) {
       this.getTestName();
     } else {
       this.fileName = fileName;
       this.outputInfo = determinePath(this.fileName, true);
+      this.pathRelativeToComponent = path.relative(this.outputInfo.fullPath, componentFullPath);
       this.createTest();
     }
   }
 
   getTestName() {
-    window.showInputBox({ prompt: 'Give your component a name...' }).then(fileName => {
+    window.showInputBox({ prompt: 'Give your test a name (do not put the extension .js)' }).then(fileName => {
       this.fileName = fileName;
       this.outputInfo = determinePath(fileName);
       this.createTest();
@@ -33,7 +34,7 @@ class CreateTest {
       this.checkIfFilenameHasDirectory();
       this.createDirectoryIfNotExists();
 
-      const newComponent = replaceAllTest(content, this.fileName, this.outputInfo.fullPath);
+      const newComponent = replaceAllTest(content, this.fileName, this.pathRelativeToComponent);
       fs.writeFileSync(this.outputInfo.fullPath, newComponent, 'utf8');
 
       this.openFileIfNeeded();

@@ -32,14 +32,13 @@ class CreateComponent {
       fs.writeFileSync(this.outputInfo.fullPath, newComponent, 'utf8');
 
       this.createTestIfNeeded();
-
       this.openFileIfNeeded();
     });
   }
 
   createTestIfNeeded() {
     if (config().has('tests') && config().get('tests')) {
-      new CreateTest(this.fileName);
+      new CreateTest(this.fileName, this.outputInfo.fullPath);
     }
   }
 
