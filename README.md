@@ -20,8 +20,7 @@ Right from the command palette, or even better, a shortcut, have a component cre
 	"react-components.openAfterCreate": true, // true, false
 	"react-components.tests": true, // true, false Create a test with your component
 	"react-components.testsRoot": "<component>/__tests__", // use <root> or <component> to give a path for the test location
-	"react-components.testsNameAppend": ".test", // append this to the end of the file so it can be Component.test.js or component_test.js
-	"react-components.testsOpenAfterCreate": false, // true, false
+	"react-components.testsNameAppend": ".test" // append this to the end of the file so it can be Component.test.js or component_test.js
 }
 ```
 

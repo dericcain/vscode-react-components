@@ -1,9 +1,22 @@
 {
     "name": "react-components",
-    "displayName": "react-components",
+    "displayName": "React Components",
     "description": "Easily create React components right from Code",
     "version": "0.0.1",
     "publisher": "dericcain",
+    "icon": "react-logo.png",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/dericcain/vscode-react-components/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dericcain/vscode-react-components.git"
+    },
+    "galleryBanner": {
+        "color": "#53C1DE",
+        "theme": "light"
+    },
     "engines": {
         "vscode": "^1.17.0"
     },
@@ -24,6 +37,18 @@
             {
                 "command": "extension.react-components:create-functional-component",
                 "title": "React Components: Create functional component"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "extension.react-components:create-class-component",
+                "key": "alt+ctrl+c",
+                "mac": "alt+cmd+c"
+            },
+            {
+                "command": "extension.react-components:create-functional-component",
+                "key": "alt+ctrl+f",
+                "mac": "alt+cmd+f"
             }
         ],
         "configuration": {
