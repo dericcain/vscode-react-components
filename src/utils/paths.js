@@ -4,8 +4,11 @@ const config = require('./config');
 
 const ROOT_DIR_USER_VARIABLE = /<root>/;
 const COMPONENT_DIR_USER_VARIABLE = /<component>/;
-const PROJECT_ROOT = workspace.workspaceFolders[0].uri.path;
-const CURRENT_FILE_DIR = path.dirname(window.activeTextEditor.document.fileName);
+const PROJECT_ROOT = workspace.rootPath || workspace.workspaceFolders[0].uri.path;
+const CURRENT_FILE_DIR = window.activeTextEditor 
+  ? path.dirname(window.activeTextEditor.document.fileName)
+  : workspace.rootPath;
+
 const FILE_EXTENSION = config().has('fileExtension')
   ? config().get('fileExtension')
   : '.js';

@@ -14,7 +14,8 @@ class CreateTest {
     } else {
       this.fileName = fileName;
       this.outputInfo = determinePath(this.fileName, true);
-      this.pathRelativeToComponent = path.relative(this.outputInfo.fullPath, componentFullPath);
+      // path.join is going one level up too far so I am hacking it here
+      this.pathRelativeToComponent = path.relative(this.outputInfo.fullPath, componentFullPath).slice(3);
       this.createTest();
     }
   }
