@@ -6,6 +6,15 @@
     "publisher": "dericcain",
     "icon": "react-logo.png",
     "license": "MIT",
+    "categories": [
+        "Other"
+    ],
+    "keywords": [
+        "react",
+        "javascript",
+        "components",
+        "react native"
+    ],
     "bugs": {
         "url": "https://github.com/dericcain/vscode-react-components/issues"
     },
@@ -20,9 +29,6 @@
     "engines": {
         "vscode": "^1.17.0"
     },
-    "categories": [
-        "Other"
-    ],
     "activationEvents": [
         "onCommand:extension.react-components:create-class-component",
         "onCommand:extension.react-components:create-functional-component"
@@ -83,6 +89,11 @@
                     "type": "string",
                     "default": "<root>/tests",
                     "description": "This is the your tests will be created."
+                },
+                "react-components.testsAppendName": {
+                    "type": "string",
+                    "default": ".test",
+                    "description": "This will be appended to your test file names like .test or _test."
                 }
             }
         }
