@@ -2,7 +2,7 @@
     "name": "react-components",
     "displayName": "React Components",
     "description": "Easily create React components right from Code",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "dericcain",
     "icon": "react-logo.png",
     "license": "MIT",
