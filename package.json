@@ -1,7 +1,7 @@
 {
     "name": "react-components",
     "displayName": "React Components",
-    "description": "Easily create React components right from Code",
+    "description": "Automate the redundant task of creating React components and tests",
     "version": "0.0.5",
     "publisher": "dericcain",
     "icon": "react-logo.png",
