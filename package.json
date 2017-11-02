@@ -2,7 +2,7 @@
     "name": "react-components",
     "displayName": "React Components",
     "description": "Automate the redundant task of creating React components and tests",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "publisher": "dericcain",
     "icon": "react-logo.png",
     "license": "MIT",
