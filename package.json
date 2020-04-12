@@ -64,7 +64,7 @@
                 "react-components.root": {
                     "type": "string",
                     "default": "<root>/src/component",
-                    "description": "Let's you specify where the created components are saved."
+                    "description": "Lets you specify where the created components are saved."
                 },
                 "react-components.fileExtension": {
                     "type": "string",
@@ -73,7 +73,7 @@
                         ".jsx"
                     ],
                     "default": ".js",
-                    "description": "Let's you specify the file extensions for the created components."
+                    "description": "Lets you specify the file extensions for the created components."
                 },
                 "react-components.openAfterCreate": {
                     "type": "boolean",
